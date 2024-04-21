@@ -197,17 +197,40 @@ int main()
                 printf("\n");
 
                 // Quitar caracteres de las posiciones indicadas e imprimir subsecuencia
+                printf("\nLa subsecuencia de la cadena es: ");                                
+                // loop over the string
+                for (int i = 0; i < longitudCadena; i++)
+                {
+                    // validate if i exist in posiciones array in any position                    
+                    int exist = 0;
+                    for (int j = 0; j < quitar; j++)
+                    {
+                        if (i == posiciones[j])
+                        {
+                            exist = 1;
+                            break;
+                        }
+                    }
+                    // if i does not exist in posiciones array, print the character
+                    if(exist == 0){
+                        printf("%c", cadena1[i]);
+                    }                    
+                } 
+                printf("\n\n");
+                /* 
+                // OLD VERSION
                 printf("\nLa subsecuencia de la cadena es: ");
                 for (int i = 0; i < quitar; i++)
                 {
                     for (int j = 0; j < longitudCadena; j++)
                     {
-                        if ((posiciones[i] - 1) == j)
-                        {
+                        if ((posiciones[i]) != j)
+                        {                            
                             printf("%c", cadena1[j]);
                         }
                     }
                 }
+                */                                
 
             } while (quitar < 0 || quitar > longitudCadena);
             break;
